@@ -1,4 +1,4 @@
-# node-static-webpage-crawler
+# static-webpage-crawler
 
 This is a very simple web crawler. You can use this to download your ENTIRE website. You may also combine this small program with Nginx to build a reverse proxy for you website.
 
