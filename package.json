@@ -1,0 +1,36 @@
+{
+  "name": "static-webpage-crawler",
+  "version": "1.0.0",
+  "description": "download entire website with it's directory structure.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mc256",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.4.1",
+    "cheerio": "^1.0.0-rc.1",
+    "command-line-args": "^4.0.6",
+    "command-line-usage": "^4.0.0",
+    "dotenv": "^4.0.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mc256/node-static-webpage-crawler.git"
+  },
+  "keywords": [
+    "crawler"
+  ],
+  "bugs": {
+    "url": "https://github.com/mc256/node-static-webpage-crawler/issues"
+  },
+  "homepage": "https://github.com/mc256/node-static-webpage-crawler#readme"
+}
