@@ -1,7 +1,7 @@
 {
   "name": "static-webpage-crawler",
   "version": "1.0.0",
-  "description": "download entire website with it's directory structure.",
+  "description": "download entire website with its own directory structure.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

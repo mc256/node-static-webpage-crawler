@@ -1,16 +1,19 @@
 # node-static-webpage-crawler
 
+This is a very simple web crawler. You can use this to download your ENTIRE website.
 
-
-## Getting Started
-
-First, you need to download this package.
-
-### Installing
+## Install
 
 ```
-npm install
+npm install node-static-webpage-crawler
 ```
+
+## Use it
+
+```
+node main.js --url=YOURDOMAIN --cache-dir=YOURDIRECTORY
+```
+
 
 ## License
 
