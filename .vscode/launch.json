@@ -7,7 +7,15 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "启动程序",
+            "name": "normal",
+            "program": "${workspaceRoot}\\main.js",
+            "args": [
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "example",
             "program": "${workspaceRoot}\\main.js",
             "args": [
                 "--url=https://note.masterchan.me", 
@@ -17,7 +25,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "调试程序",
+            "name": "debug",
             "program": "${workspaceRoot}\\main.js",
             "args": [
                 "--url=https://note.masterchan.me", 

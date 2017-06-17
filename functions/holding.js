@@ -35,9 +35,9 @@ class WaitingList {
             },
             //Generate cachefile path
             (callback) => {
-                item.path = Path.join(main.cachePath, item.url.pathname.endsWith('/') ? 'index.html' : decodeURI(item.url.pathname));
+                item.path = Path.join(main.cachePath, item.url.pathname.endsWith('/') ? main.defaultIndex : decodeURI(item.url.pathname));
                 if (Path.extname(item.path) == ''){
-                    item.path += '.html';
+                    item.path += main.defaultExt;
                 }
                 return callback(null);
             },

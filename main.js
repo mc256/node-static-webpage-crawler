@@ -15,11 +15,13 @@ class Master {
         const Path = require('path');
 
         //Attribute
-        this.maxThreadNumber = this.options['thread'] && this.options['thread'] >= 1 ? this.options['thread'] : 5;
+        this.maxThreadNumber = this.options['thread'];
         this.currentThreadNumber = 0;
-        this.ua = this.options['customized-ua'] ? this.options['customized-ua'] : 'Node-Static-Webpage-Crawler';
+        this.ua = this.options['customized-ua'];
         this.baseUrl = new URL(this.options['url']);
         this.cachePath = this.options['cache-dir'];
+        this.defaultIndex = this.options['index-page'];
+        this.defaultExt = this.options['default-page-extension'];
         this.list = new WaitingList(this);
         this.startTime = new Date();
 
@@ -41,10 +43,13 @@ class Master {
         const commandLineDefinition = [
             { name: 'url', alias:'u', type: String, multiple: false },
             { name: 'cache-dir', alias:'c', type: String, multiple: false },
-            { name: 'thread', alias:'t', type: Number, multiple: false },
-            { name: 'customized-ua', alias:'a', type: String, multiple: false }
+
+            { name: 'thread', alias:'t', type: Number, multiple: false ,defaultValue: 5},
+            { name: 'customized-ua', alias:'a', type: String, multiple: false, defaultValue: 'Node-Static-Webpage-Crawler'},
+            { name: 'index-page', alias:'i', type: String, multiple: false ,defaultValue: 'index.html'},
+            { name: 'default-page-extension', alias:'e', type: String, multiple: false, defaultValue: '.html'}
         ];
-        this.options = commandLineArgument(commandLineDefinition);
+        this.options = commandLineArgument(commandLineDefinition, { partial: true });
     }
 
     printCommandLineUsage() {
@@ -76,12 +81,22 @@ class Master {
                     {
                         name: 'thread',
                         alias: 't',
-                        description: 'Although Node.js is single thread, the web crawler is not. (default value 5)'
+                        description: 'Although Node.js is single thread, the web crawler is not. (default is 5)'
                     },
                     {
-                        name: 'customized-UA',
-                        alias: 'ua',
+                        name: 'customized-ua',
+                        alias: 'a',
                         description: 'A customized user agent in header field to identify this crawler.'
+                    },
+                    {
+                        name: 'index-page',
+                        alias: 'i',
+                        description: 'Default index page. (index.html)'
+                    },
+                    {
+                        name: 'default-page-extension',
+                        alias: 'e',
+                        description: 'Default page extension. Do not forget the PERIOD in front of it. (.html)'
                     }
                 ]
             }

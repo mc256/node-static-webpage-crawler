@@ -1,19 +1,20 @@
 # node-static-webpage-crawler
 
-This is a very simple web crawler. You can use this to download your ENTIRE website.
+This is a very simple web crawler. You can use this to download your ENTIRE website. You may also combine this small program with Nginx to build a reverse proxy for you website.
+
+**This Package requires Node.js 8**
 
 ## Install
 
 ```
-npm install node-static-webpage-crawler
+npm i static-webpage-crawler
 ```
 
 ## Use it
 
 ```
-node main.js --url=YOURDOMAIN --cache-dir=YOURDIRECTORY
+node  static-webpage-crawler --url=YOURDOMAIN --cache-dir=YOURDIRECTORY
 ```
-
 
 ## License
 
