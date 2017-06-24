@@ -13,25 +13,36 @@ npm i static-webpage-crawler
 ## Use it
 
 ```
-node  static-webpage-crawler --url=YOURDOMAIN --cache-dir=YOURDIRECTORY
+node  static-webpage-crawler --url=YOURDOMAIN --cache-dir=YOURDIRECTORY/
 ```
 
 You may use it with Nginx
 
 ```
-location / {
-        try_files       /$host$request_uri
-                        /$host$request_uri.html
-                        /$host$request_uri/index.html
-                        /$host$request_uri"index.html"
-                        @pass_proxy;
-}
+server {
+        ...
+        root YOURDIRECTORY;
 
-location @pass_proxy {
-        proxy_pass https://backend;
+        location / {
+                try_files       /$host$request_uri
+                                /$host$request_uri.html
+                                /$host$request_uri/index.html
+                                /$host$request_uri"index.html"
+                                @pass_proxy;
+        }
+
+        location @pass_proxy {
+                proxy_pass https://backend;
+                ...
+        }
         ...
 }
+
 ```
+
+
+
+
 
 ## License
 

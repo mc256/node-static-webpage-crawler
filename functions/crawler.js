@@ -5,7 +5,7 @@ class WebCrawler {
         this.pageContent = null;
         this.callback = callback;
 
-        const https = require('https');
+        const protocol = ( main.useHTTP ) ? require('http') : require('https');
         const options = {
             hostname: item.url.hostname,
             method: 'GET',
@@ -15,7 +15,7 @@ class WebCrawler {
             }
         }
         //console.log(options);
-        const request =  https.request(options, (r) => { this.requestCallback(r); });
+        const request =  protocol.request(options, (r) => { this.requestCallback(r); });
         request.on('error', (e) => { this.dataError(e); });
         request.end();
     }

@@ -18,7 +18,7 @@
             "name": "example",
             "program": "${workspaceRoot}\\main.js",
             "args": [
-                "--url=https://masterchan.me/", 
+                "--url=http://homesfordinner.ca/", 
                 "--cache-dir=D:/Source/website-cache/"
             ]
         },

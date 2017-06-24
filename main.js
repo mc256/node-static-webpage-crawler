@@ -22,6 +22,7 @@ class Master {
         this.cachePath = this.options['cache-dir'];
         this.defaultIndex = this.options['index-page'];
         this.defaultExt = this.options['default-page-extension'];
+        this.useHTTP = this.options['use-http'];
         this.list = new WaitingList(this);
         this.startTime = new Date();
 
@@ -47,7 +48,11 @@ class Master {
             { name: 'thread', alias:'t', type: Number, multiple: false ,defaultValue: 5},
             { name: 'customized-ua', alias:'a', type: String, multiple: false, defaultValue: 'Node-Static-Webpage-Crawler'},
             { name: 'index-page', alias:'i', type: String, multiple: false ,defaultValue: 'index.html'},
-            { name: 'default-page-extension', alias:'e', type: String, multiple: false, defaultValue: '.html'}
+            { name: 'default-page-extension', alias:'e', type: String, multiple: false, defaultValue: '.html'},
+
+            { name: 'use-http', type: Boolean, multiple: false}
+
+
         ];
         this.options = commandLineArgument(commandLineDefinition, { partial: true });
     }
@@ -97,6 +102,10 @@ class Master {
                         name: 'default-page-extension',
                         alias: 'e',
                         description: 'Default page extension. Do not forget the PERIOD in front of it. (.html)'
+                    },
+                    {
+                        name: 'use-http',
+                        description: 'Use deprecated HTTP insecure connection. (not recommanded)'
                     }
                 ]
             }
