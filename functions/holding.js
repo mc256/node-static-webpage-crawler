@@ -36,6 +36,9 @@ class WaitingList {
             //Generate cachefile path
             (callback) => {
                 item.path = Path.join(main.cachePath, item.url.pathname.endsWith('/') ? decodeURI(item.url.pathname) + main.defaultIndex : decodeURI(item.url.pathname));
+                if (Path.extname(item.path) == '.php'){
+                    return;
+                }
                 if (Path.extname(item.path) == ''){
                     item.path += main.defaultExt;
                 }

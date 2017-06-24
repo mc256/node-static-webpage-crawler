@@ -54,7 +54,9 @@ class WorkingThread {
         const links = $('a');
         links.each((index, element) => {
             try{
-                this.mainThread.list.addPage(element.attribs['href'], this.item.url.toString());
+                if (element.attribs['href']){
+                    this.mainThread.list.addPage(element.attribs['href'], this.item.url.toString());
+                }                
             }catch(error){
                 console.log(error);
             }
@@ -62,7 +64,9 @@ class WorkingThread {
         const imgs = $('img');
         imgs.each((index, element) => {
             try{
-                this.mainThread.list.addPage(element.attribs['src'], this.item.url.toString());
+                if (element.attribs['href']){
+                    this.mainThread.list.addPage(element.attribs['href'], this.item.url.toString());
+                }
             }catch(error){
                 console.log(error);
             }
