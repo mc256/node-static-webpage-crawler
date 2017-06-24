@@ -42,9 +42,11 @@ class WebCrawler {
 
     dataFinished(data){
         if (this.pageContent == null && !data){
-            this.pageContent = data;
+            this.pageContent = "";
         }else{
-            this.pageContent += data;
+            if (data) {
+                this.pageContent += data;
+            }            
         }
 
         //console.log('Crawler    Finished : %d - %s - %s', this.item.code, this.item.type, this.item.url.toString());
