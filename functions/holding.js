@@ -16,13 +16,13 @@ class WaitingList {
         this.mainThread = mainThread;
     }
 
-    addPage(urlString){
+    addPage(urlString, baseUrl){
         const Thread = require('./thread');
         const Path = require('path');
         const Async = require('async');
         const fs = require('fs');
         const mkdirp = require('mkdirp');
-        const item = new WebPage(urlString, this.mainThread.baseUrl);
+        const item = new WebPage(urlString, baseUrl);
         const main = this.mainThread;
         const list = this.list;
 
@@ -35,7 +35,7 @@ class WaitingList {
             },
             //Generate cachefile path
             (callback) => {
-                item.path = Path.join(main.cachePath, item.url.pathname.endsWith('/') ? main.defaultIndex : decodeURI(item.url.pathname));
+                item.path = Path.join(main.cachePath, item.url.pathname.endsWith('/') ? decodeURI(item.url.pathname) + main.defaultIndex : decodeURI(item.url.pathname));
                 if (Path.extname(item.path) == ''){
                     item.path += main.defaultExt;
                 }

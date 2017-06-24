@@ -53,11 +53,19 @@ class WorkingThread {
         const $ = Cheerio.load(this.crawler.pageContent);
         const links = $('a');
         links.each((index, element) => {
-            this.mainThread.list.addPage(element.attribs['href']);
+            try{
+                this.mainThread.list.addPage(element.attribs['href'], this.item.url.toString());
+            }catch(error){
+                console.log(error);
+            }
         })
         const imgs = $('img');
         imgs.each((index, element) => {
-            this.mainThread.list.addPage(element.attribs['src']);
+            try{
+                this.mainThread.list.addPage(element.attribs['src'], this.item.url.toString());
+            }catch(error){
+                console.log(error);
+            }
         })
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "static-webpage-crawler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "download entire website with its own directory structure.",
   "main": "main.js",
   "scripts": {

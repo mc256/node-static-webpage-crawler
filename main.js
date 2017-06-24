@@ -26,7 +26,7 @@ class Master {
         this.startTime = new Date();
 
         //Action
-        this.list.addPage(this.baseUrl.toString());
+        this.list.addPage(this.baseUrl.toString(), this.baseUrl.toString());
 
         setInterval(()=>{
             if (this.currentThreadNumber == 0){
