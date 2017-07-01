@@ -16,7 +16,30 @@ npm i static-webpage-crawler
 node  static-webpage-crawler --url=YOURDOMAIN --cache-dir=YOURDIRECTORY/
 ```
 
-You may use it with Nginx
+### Required Arguments
+
+  **-u, --url**          Target URL.
+
+  **-c, --cache-dir**    Directory for all the cache files.
+
+### Options
+
+  **-t, --thread**                    Although Node.js is single thread, the web crawler is not.
+                                  (default is 5)
+
+  **-a, --customized-ua**             A customized user agent in header field to identify this crawler.
+
+  **-i, --index-page**                Default index page. (index.html)
+
+  **-e, --default-page-extension**    Default page extension. Do not forget the PERIOD in front of it.
+                                  (.html)
+
+  **--use-http**                      Use deprecated HTTP insecure connection. (not recommanded)
+
+
+
+
+You may also use it with Nginx
 
 ```
 server {
